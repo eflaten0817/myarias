@@ -1,209 +1,138 @@
+import React, {useState, useEffect} from 'react'
 import Head from 'next/head'
+//import MCTForm from '../components/mctform';
+//import Result from '../components/result';
 
-export default function Home() {
+const Home = ({data}) => {
+
+  const getArias = async () => {
+    const res = await fetch('http://localhost:3000/api/daily')
+    const json = await res.json()
+    console.log(json) //THIS Logs "Undefined"
+  }
+
+  const getAriasFilterVoice = async () => {
+    const res = await fetch('http://localhost:3000/api/daily' + filters[0])
+    const json = await res.json()
+  }
+
+  const filters = ["","","",""];
+    const handleChangeVoice = (event) => {
+       let voice =  event.target.value;
+       filters[0] = voice;
+       //alert(filters[0]);
+
+    }
+    const handleChangeFach = (event) => {
+        let fach =  event.target.value;
+        filters[1] = fach;
+        alert(filters[1]);
+
+    }
+    const handleChangeStyle = (event) => {
+        let style =  event.target.value;
+        filters[2] = style;
+        alert(filters[2]);
+    }
+    const handleChangeComposer = (event) => {
+        let composer =  event.target.value;
+        filters[3] = composer;
+    }
+    const getFilters = async () => {
+        //let outputString = filters[0] +' '+ filters[1]+' '+ filters[2]+' '+ filters[3];
+        let voiceFilter = filters[0]
+        //alert(voiceFilter)
+        const res = await fetch(`http://localhost:3000/api/daily?voiceFilter=${filters[0]}`)
+        const json = await res.json()
+        console.log(json) //THIS IS UNDEFINED GDI
+        event.preventDefault();
+    }
+
   return (
-    <div className="container">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+  <div>
+    <Head>
+      <title>Home</title>
+      <link rel="icon" href="/favicon.ico" />
+      <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+    </Head>
 
-      <main>
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="card"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+      <div className="flex text-center">
+        <div className="w-full m-4">
+          <h1 className="text-4xl">Aria Search Tool</h1>
         </div>
-      </main>
+      </div>
+      <div className="flex text-center">
+        <div className="w-full m-4">
+          <div className="w-full m-4">
+        <div className="p-4">
+          <form>
+            <label className="block">
+                Select Voice Type: &nbsp; 
+                <select onChange={handleChangeVoice}>
+                    <option value="Undefined">-------</option>
+                    <option value="Soprano">Soprano</option>
+                    <option value="tenor">Tenor</option>
+                    <option value="mezzo">Mezzo</option>
+                    <option value="bass">Bass</option>
+                </select>
+            </label>
+          </form>
+        </div>
+        <div className="p-4">
+        <form>
+            <label className="block">
+                Select Fach: &nbsp; 
+                <select onChange={handleChangeFach}>
+                    <option value="Undefined">-------</option>
+                    <option value="Lyric">Lyric</option>
+                    <option value="Coloratura">Coloratura</option>
+                    <option value="Dramatic">Dramatic</option>
+                    <option value="Spinto">Spinto</option>
+                </select>
+            </label>
+          </form>
+        </div>
+        <div className="p-4">
+        <form>
+            <label className="block">
+                Select Style: &nbsp; 
+                <select onChange={handleChangeStyle}>
+                    <option value="Undefined">-------</option>
+                    <option value="Verismo">Verismo</option>
+                    <option value="Bel Canto">Bel Canto</option>
+                    <option value="Singspiel">Singspiel</option>
+                    <option value="American">American</option>
+                </select>
+            </label>
+          </form>
+        </div>
+        <div className="p-4">
+        <form>
+            <label className="block">
+                Select Composer: &nbsp; 
+                <select onChange={handleChangeComposer}>
+                    <option value="Undefined">-------</option>
+                    <option value="mozart">Mozart</option>
+                    <option value="puccini">Puccini</option>
+                    <option value="verdi">Verdi</option>
+                    <option value="bernstein">Bernstein</option>
+                </select>
+            </label>
+            <br></br>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={getArias}>
+              Find My Arias
+          </button>
+          </form>
+          </div>
+        </div>
+        </div>
+      </div>      
+  </div>
+)}
 
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-        </a>
-      </footer>
-
-      <style jsx>{`
-        .container {
-          min-height: 100vh;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer img {
-          margin-left: 0.5rem;
-        }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        .title a {
-          color: #0070f3;
-          text-decoration: none;
-        }
-
-        .title a:hover,
-        .title a:focus,
-        .title a:active {
-          text-decoration: underline;
-        }
-
-        .title {
-          margin: 0;
-          line-height: 1.15;
-          font-size: 4rem;
-        }
-
-        .title,
-        .description {
-          text-align: center;
-        }
-
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-
-          max-width: 800px;
-          margin-top: 3rem;
-        }
-
-        .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
-        }
-
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
-        }
-
-        .logo {
-          height: 1em;
-        }
-
-        @media (max-width: 600px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
-          }
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
-    </div>
-  )
+Home.getInitialProps = async () => {
+  const res = await fetch('http://localhost:3000/api/daily')
+  const json = await res.json()
+  return {data: json}
 }
+export default Home
