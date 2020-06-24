@@ -5,10 +5,26 @@ import Head from 'next/head'
 
 const Home = ({data}) => {
 
+  //Do I need this:
+  let Aria = {
+    _id: String,
+    Voice : String,
+    Title: String,
+    Opera: String,
+    Composer: String,
+    Style: String,
+    Fach: String,
+    RangeLow: String,
+    RangeHigh: String,
+
+  }
+
   const getArias = async () => {
     const res = await fetch('http://localhost:3000/api/daily')
     const json = await res.json()
-    console.log(json) //THIS Logs "Undefined"
+    return {data: json}
+    //Need to figure out what to do next:
+      //how do I take json recieved from fetch and display it for user?
   }
 
   const getAriasFilterVoice = async () => {
@@ -20,31 +36,24 @@ const Home = ({data}) => {
     const handleChangeVoice = (event) => {
        let voice =  event.target.value;
        filters[0] = voice;
-       //alert(filters[0]);
-
     }
     const handleChangeFach = (event) => {
         let fach =  event.target.value;
         filters[1] = fach;
-        alert(filters[1]);
-
     }
     const handleChangeStyle = (event) => {
         let style =  event.target.value;
         filters[2] = style;
-        alert(filters[2]);
     }
     const handleChangeComposer = (event) => {
         let composer =  event.target.value;
         filters[3] = composer;
     }
     const getFilters = async () => {
-        //let outputString = filters[0] +' '+ filters[1]+' '+ filters[2]+' '+ filters[3];
         let voiceFilter = filters[0]
-        //alert(voiceFilter)
         const res = await fetch(`http://localhost:3000/api/daily?voiceFilter=${filters[0]}`)
         const json = await res.json()
-        console.log(json) //THIS IS UNDEFINED GDI
+        //console.log(json) //THIS IS UNDEFINED GDI
         event.preventDefault();
     }
 
