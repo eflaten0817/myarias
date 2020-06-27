@@ -9,22 +9,20 @@ handler.use(middleware);
 handler.get(async (req, res) => {
     let doc = {}
     let vFilter = req.query.voiceFilter
-    //console.log(vFilter)
+    
     if (vFilter){
-        let allArias = await req.db.collection('aria_data', function (err, collection)
+        doc = await req.db.collection('aria_data', function (err, collection)
         {
-        collection.find({"Voice":vFilter}).toArray(function (err, document){
-            res.json(document)
-            //console.log(vFilter)
-            //console.log(document) //THIS SHOWS UP
+        collection.find({"Voice":vFilter}).toArray(function (err, doc){
+            res.json(doc)
         });
         });
     }
     else {
-        const allArias = await req.db.collection('aria_data').find().toArray();
-        //console.log(allArias) //THIS SHOWS UP
-        res.json(allArias)
+        //const allArias = await req.db.collection('aria_data').find().toArray();
+        doc = await req.db.collection('aria_data').findOne();
+        res.json(doc)
     }
 });
 
-export default handler;
+export default (req, res) => handler.apply(req, res)

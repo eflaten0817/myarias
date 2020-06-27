@@ -5,7 +5,7 @@ import AriaItem from '../components/AriaItem'
 
 const Home = ({data}) => {
 
-  //Do I need this:
+  //using this as test data, works when I pass it to my AriaItem componant
   let testData = {
     _id: String,
     voice : "Sorpano",
@@ -24,8 +24,9 @@ const Home = ({data}) => {
   const getArias = async () => {
     const res = await fetch('http://localhost:3000/api/daily')
     const json = await res.json()
-    setAriaInfo(json);
-    //Need to figure out what to do next:
+    setAriaInfo(json) //shooting in the dark
+    testData = json; //also shooting in the dark here
+    //Need to figure out what to do next; this is where I'm getting stuck
       //how do I take json recieved from fetch and pass it to AriaItem component?
   }
 
