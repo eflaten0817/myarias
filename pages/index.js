@@ -24,10 +24,10 @@ const Home = ({data}) => {
   const getArias = async () => {
     const res = await fetch('http://localhost:3000/api/daily')
     const json = await res.json()
+    //let aria = json[1]
     setAriaInfo(json) //shooting in the dark
-    testData = json; //also shooting in the dark here
     //Need to figure out what to do next; this is where I'm getting stuck
-      //how do I take json recieved from fetch and pass it to AriaItem component?
+      //when api sends 1 item it works but I can't figure out array of objects passing from api
   }
 
   const getAriasFilterVoice = async () => {
@@ -56,7 +56,6 @@ const Home = ({data}) => {
         let voiceFilter = filters[0]
         const res = await fetch(`http://localhost:3000/api/daily?voiceFilter=${filters[0]}`)
         const json = await res.json()
-        //console.log(json) //THIS IS UNDEFINED GDI
         event.preventDefault();
     }
 
@@ -142,7 +141,7 @@ const Home = ({data}) => {
         <div className="flex text-center">
           <div className="w-full m-4">
           //can I generate a number of AriaItem components based on number of arias?
-          <AriaItem ariaInfo={testData} />
+          <AriaItem ariaInfo={data} />
         </div>
       </div>     
   </div>

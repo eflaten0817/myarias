@@ -4,13 +4,13 @@ const AriaItem = ({ariaInfo}) => {
         <div className= "block">
             <div className="p-4">
                 <div className="border-solid border-4 border-gray-600">
-                    {ariaInfo.title}
+                    {ariaInfo.Title}
                     <br></br>
-                    {ariaInfo.opera}
+                    {ariaInfo.Opera}
                     <br></br>
-                    {ariaInfo.composer}
+                    {ariaInfo.Composer}
                     <br></br>
-                    {ariaInfo.voice}
+                    {ariaInfo.Voice}
                 </div>
             </div>
         </div>
