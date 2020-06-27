@@ -1,30 +1,32 @@
 import React, {useState, useEffect} from 'react'
 import Head from 'next/head'
-//import MCTForm from '../components/mctform';
-//import Result from '../components/result';
+import AriaItem from '../components/AriaItem'
+
 
 const Home = ({data}) => {
 
   //Do I need this:
-  let Aria = {
+  let testData = {
     _id: String,
-    Voice : String,
-    Title: String,
-    Opera: String,
-    Composer: String,
-    Style: String,
-    Fach: String,
-    RangeLow: String,
-    RangeHigh: String,
+    voice : "Sorpano",
+    title: "Si, mi chiamano Mimi",
+    opera: "La Boheme",
+    composer: "Puccini",
+    style: "Verismo",
+    fach: String,
+    rangeLow: String,
+    rangeHigh: String,
 
   }
+
+  const [ariaInfo, setAriaInfo] = useState(data);
 
   const getArias = async () => {
     const res = await fetch('http://localhost:3000/api/daily')
     const json = await res.json()
-    return {data: json}
+    setAriaInfo(json);
     //Need to figure out what to do next:
-      //how do I take json recieved from fetch and display it for user?
+      //how do I take json recieved from fetch and pass it to AriaItem component?
   }
 
   const getAriasFilterVoice = async () => {
@@ -135,7 +137,13 @@ const Home = ({data}) => {
           </div>
         </div>
         </div>
-      </div>      
+      </div>
+        <div className="flex text-center">
+          <div className="w-full m-4">
+          //can I generate a number of AriaItem components based on number of arias?
+          <AriaItem ariaInfo={testData} />
+        </div>
+      </div>     
   </div>
 )}
 
