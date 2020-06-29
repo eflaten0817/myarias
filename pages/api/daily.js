@@ -7,10 +7,11 @@ const handler = nextConnect();
 handler.use(middleware);
 
 handler.get(async (req, res) => {
-    let doc = []
+    let doc = {}
     let vFilter = req.query.voiceFilter
     
     if (vFilter){
+        let doc = []
         doc = await req.db.collection('aria_data', function (err, collection)
         {
         collection.find({"Voice":vFilter}).toArray(function (err, doc){    
@@ -18,10 +19,10 @@ handler.get(async (req, res) => {
         });
     }
     else {
-        //doc = await req.db.collection('aria_data').find().toArray();
+        //doc = await req.db.collection('aria_data').find().toArray(); 
         doc = await req.db.collection('aria_data').findOne();  
     }
-    res.send(doc)
+    res.json(doc)
 });
 
 export default (req, res) => handler.apply(req, res)

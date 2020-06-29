@@ -1,33 +1,31 @@
 import React, {useState, useEffect} from 'react'
 import Head from 'next/head'
 import AriaItem from '../components/AriaItem'
+import fetch from 'isomorphic-unfetch'
 
+const getArias = async () => {
+  const res = await fetch('http://localhost:3000/api/daily')
+  const json = await res.json()
+  return {data: json}  
+}
 
 const Home = ({data}) => {
-
-  //using this as test data, works when I pass it to my AriaItem componant
-  let testData = {
-    _id: String,
-    voice : "Sorpano",
-    title: "Si, mi chiamano Mimi",
-    opera: "La Boheme",
-    composer: "Puccini",
-    style: "Verismo",
-    fach: String,
-    rangeLow: String,
-    rangeHigh: String,
-
-  }
-
   const [ariaInfo, setAriaInfo] = useState(data);
+  
+  
+  useEffect(async () => {
+    let {data} = await getArias();
+    setAriaInfo(data); // sets ariaInfo state
+  } 
+, []);
 
-  const getArias = async () => {
-    const res = await fetch('http://localhost:3000/api/daily')
-    const json = await res.json()
-    //let aria = json[1]
-    setAriaInfo(json) //shooting in the dark
-    //Need to figure out what to do next; this is where I'm getting stuck
-      //when api sends 1 item it works but I can't figure out array of objects passing from api
+  // should happen with onClick
+  const updateArias = async () => {
+    //********This is not working***********/
+    // Aria Item should update with information
+    // It looks like it might flash with an update but then go back to undefined
+    let {data} = await getArias();
+    setAriaInfo(data); // sets ariaInfo state
   }
 
   const getAriasFilterVoice = async () => {
@@ -56,7 +54,7 @@ const Home = ({data}) => {
         let voiceFilter = filters[0]
         const res = await fetch(`http://localhost:3000/api/daily?voiceFilter=${filters[0]}`)
         const json = await res.json()
-        event.preventDefault();
+        return {data: json}  
     }
 
   return (
@@ -130,7 +128,7 @@ const Home = ({data}) => {
                 </select>
             </label>
             <br></br>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={getArias}>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={updateArias}>
               Find My Arias
           </button>
           </form>
@@ -138,18 +136,32 @@ const Home = ({data}) => {
         </div>
         </div>
       </div>
-        <div className="flex text-center">
+      <div className="flex text-center">
           <div className="w-full m-4">
-          //can I generate a number of AriaItem components based on number of arias?
-          <AriaItem ariaInfo={data} />
+          My Aria Result:
+          <AriaItem ariaInfo={ariaInfo} />
         </div>
-      </div>     
-  </div>
+      </div>  
+    </div>     
+  
 )}
 
-Home.getInitialProps = async () => {
-  const res = await fetch('http://localhost:3000/api/daily')
-  const json = await res.json()
-  return {data: json}
+//Home.getInitialProps = async () => {
+  //const res = await fetch('http://localhost:3000/api/daily')
+  //const json = await res.json()
+  //return {data: json}
+//}
+
+let testData = {
+  _id: String,
+  Voice : "Sorpano",
+  Title: "Si, mi chiamano Mimi",
+  Opera: "La Boheme",
+  Composer: "Puccini",
+  style: "Verismo",
+  fach: String,
+  rangeLow: String,
+  rangeHigh: String,
+
 }
 export default Home
