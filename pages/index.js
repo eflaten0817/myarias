@@ -109,9 +109,9 @@ const Home = ({ data }) => {
                                     <select onChange={handleChangeVoice}>
                                         <option value="">-------</option>
                                         <option value="Soprano">Soprano</option>
-                                        <option value="tenor">Tenor</option>
-                                        <option value="mezzo">Mezzo</option>
-                                        <option value="bass">Bass</option>
+                                        <option value="Tenor">Tenor</option>
+                                        <option value="Mezzo">Mezzo</option>
+                                        <option value="Bass">Bass</option>
                                     </select>
                                 </label>
                             </form>
@@ -136,10 +136,10 @@ const Home = ({ data }) => {
                                     Select Fach: &nbsp;
                                     <select onChange={handleChangeFach}>
                                         <option value="">-------</option>
-                                        <option value="lyric">Lyric</option>
-                                        <option value="coloratura">Coloratura</option>
-                                        <option value="dramatic">Dramatic</option>
-                                        <option value="spinto">Spinto</option>
+                                        <option value="Lyric">Lyric</option>
+                                        <option value="Coloratura">Coloratura</option>
+                                        <option value="Dramatic">Dramatic</option>
+                                        <option value="Spinto">Spinto</option>
                                     </select>
                                 </label>
                             </form>
