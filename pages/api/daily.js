@@ -1,5 +1,6 @@
-import nextConnect from 'next-connect';
-import middleware from '../../middleware/database';
+import nextConnect from "next-connect";
+import middleware from "../../middleware/database";
+import qs from "qs";
 //import {ObjectID} from 'mongodb';
 
 const handler = nextConnect();
@@ -7,22 +8,22 @@ const handler = nextConnect();
 handler.use(middleware);
 
 handler.get(async (req, res) => {
-    let doc = {}
-    let vFilter = req.query.voiceFilter
-    
-    if (vFilter){
-        let doc = []
-        doc = await req.db.collection('aria_data', function (err, collection)
-        {
-        collection.find({"Voice":vFilter}).toArray(function (err, doc){    
+    let doc = {};
+    let query = qs.parse(req.query);
+    // let vFilter = req.query.voiceFilter;
+
+    if (query.voiceFilter) {
+        doc = await req.db.collection("aria_data", function (err, collection) {
+            // * I think this is what you want - Eric
+            return collection.filter((item) => item.Voice === query.voiceFilter);
+            // collection.find({ Voice: vFilter }).toArray(function (err, _doc) {});
         });
-        });
+    } else {
+        // * else: return all arias
+        doc = await req.db.collection("aria_data");
     }
-    else {
-        doc = await req.db.collection('aria_data').find().toArray(); 
-        //doc = await req.db.collection('aria_data').findOne();  
-    }
-    res.json(doc)
+
+    res.json(doc);
 });
 
-export default (req, res) => handler.apply(req, res)
+export default (req, res) => handler.apply(req, res);

@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
-const AriaItem = ({ariaInfo}) => {
+const AriaItem = ({ ariaInfo }) => {
     return (
-        <div className= "block">
+        <div className="block">
             <div className="p-4">
                 <div className="border-solid border-4 border-gray-600">
                     Title: {ariaInfo.Title}
@@ -15,6 +15,7 @@ const AriaItem = ({ariaInfo}) => {
                 </div>
             </div>
         </div>
-    )
-}
-export default AriaItem
+    );
+};
+
+export default AriaItem;
