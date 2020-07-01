@@ -3,35 +3,32 @@ import Head from 'next/head'
 import AriaItem from '../components/AriaItem'
 import fetch from 'isomorphic-unfetch'
 
-const getArias = async () => {
-  const res = await fetch('http://localhost:3000/api/daily')
-  const json = await res.json()
-  return {data: json}  
-}
+
 
 const Home = ({data}) => {
+  
   const [ariaInfo, setAriaInfo] = useState(data);
   
   
+  /*
   useEffect(async () => {
     let {data} = await getArias();
     setAriaInfo(data); // sets ariaInfo state
   } 
 , []);
+  */
 
   // should happen with onClick
-  const updateArias = async () => {
+  const updateArias = (async () => {
     //********This is not working***********/
     // Aria Item should update with information
-    // It looks like it might flash with an update but then go back to undefined
+    // It sometimes very briefly with an update but then goes back to undefined
     let {data} = await getArias();
+    alert(data.Title); //only sometimes happens
     setAriaInfo(data); // sets ariaInfo state
   }
+, []);
 
-  const getAriasFilterVoice = async () => {
-    const res = await fetch('http://localhost:3000/api/daily' + filters[0])
-    const json = await res.json()
-  }
 
   const filters = ["","","",""];
     const handleChangeVoice = (event) => {
@@ -50,11 +47,15 @@ const Home = ({data}) => {
         let composer =  event.target.value;
         filters[3] = composer;
     }
-    const getFilters = async () => {
-        let voiceFilter = filters[0]
-        const res = await fetch(`http://localhost:3000/api/daily?voiceFilter=${filters[0]}`)
-        const json = await res.json()
-        return {data: json}  
+    
+    const getArias = async () => {
+      let voiceFilter = filters[0]
+      let fachFilter = filters[1]
+      let styleFilter = filters[2]
+      let composerFilter = filters[3]
+      const res = await fetch(`http://localhost:3000/api/daily?voiceFilter=${voiceFilter}${fachFilter}${styleFilter}${composerFilter}`)
+      const json = await res.json()
+      return {data: json}  
     }
 
   return (

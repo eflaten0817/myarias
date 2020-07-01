@@ -19,8 +19,8 @@ handler.get(async (req, res) => {
         });
     }
     else {
-        //doc = await req.db.collection('aria_data').find().toArray(); 
-        doc = await req.db.collection('aria_data').findOne();  
+        doc = await req.db.collection('aria_data').find().toArray(); 
+        //doc = await req.db.collection('aria_data').findOne();  
     }
     res.json(doc)
 });
