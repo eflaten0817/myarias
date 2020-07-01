@@ -13,6 +13,7 @@ const Home = ({ data }) => {
     const [fachFilter, setFachFilter] = useState("");
     const [styleFilter, setStyleFilter] = useState("");
     const [composerFilter, setComposerFilter] = useState("");
+    const [languageFilter, setLanguageFilter] = useState("");
 
     // * simple debug logger; logs every time ariaCollection changes
     useEffect(() => {
@@ -33,6 +34,7 @@ const Home = ({ data }) => {
                     fachFilter,
                     styleFilter,
                     composerFilter,
+                    languageFilter
                 });
 
                 const response = await fetch(`http://localhost:3000/api/daily?${query}`);
@@ -46,7 +48,7 @@ const Home = ({ data }) => {
             _getArias();
         },
         // * dependencies of the function above
-        [voiceFilter, fachFilter, styleFilter, composerFilter]
+        [voiceFilter, fachFilter, styleFilter, composerFilter, languageFilter]
     );
 
     const handleChangeVoice = React.useCallback(
@@ -77,6 +79,13 @@ const Home = ({ data }) => {
         [setComposerFilter]
     );
 
+    const handleChangeLanguage = React.useCallback(
+        (event) => {
+            setLanguageFilter(event.target.value);
+        },
+        [setLanguageFilter]
+    )
+
     return (
         <div>
             <Head>
@@ -103,6 +112,20 @@ const Home = ({ data }) => {
                                         <option value="tenor">Tenor</option>
                                         <option value="mezzo">Mezzo</option>
                                         <option value="bass">Bass</option>
+                                    </select>
+                                </label>
+                            </form>
+                        </div>
+                        <div className="p-4">
+                            <form>
+                                <label className="block">
+                                    Select Language: &nbsp;
+                                    <select onChange={handleChangeLanguage}>
+                                        <option value="">-------</option>
+                                        <option value="Italian">Italian</option>
+                                        <option value="German">German</option>
+                                        <option value="French">French</option>
+                                        <option value="English">English</option>
                                     </select>
                                 </label>
                             </form>

@@ -10,8 +10,6 @@ handler.use(middleware);
 handler.get(async (req, res) => {
     let doc = {};
     let query = qs.parse(req.query);
-    // let vFilter = req.query.voiceFilter;
-    //query.voiceFilter
     if (query) {
 
         doc = await req.db.collection("aria_data").find(
@@ -19,7 +17,9 @@ handler.get(async (req, res) => {
                 Voice: {$regex: query.voiceFilter},
                 Style: {$regex: query.styleFilter},
                 Composer: {$regex: query.composerFilter},
-                Fach: {$regex: query.fachFilter}
+                Fach: {$regex: query.fachFilter},
+                Language: {$regex: query.languageFilter}
+
             }).toArray();
         // * for some reason, if I don't do it this ^ way, I get the "unexpected token" error
         // * it might be a specific MongoDb Atlas syntax thing, I had similar issues using mongoDB with python
@@ -29,7 +29,7 @@ handler.get(async (req, res) => {
             //return collection.filter((item) => item.Voice === query.voiceFilter);
             // collection.find({ Voice: vFilter }).toArray(function (err, _doc) {});
         //});
-        
+
     } else {
         // * else: return all arias
         //doc = await req.db.collection("aria_data");
