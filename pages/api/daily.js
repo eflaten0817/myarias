@@ -11,7 +11,6 @@ handler.get(async (req, res) => {
     let doc = {};
     let query = qs.parse(req.query);
     if (query) {
-
         doc = await req.db.collection("aria_data").find(
             {
                 Voice: {$regex: query.voiceFilter},

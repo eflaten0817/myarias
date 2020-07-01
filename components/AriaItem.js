@@ -11,7 +11,7 @@ const AriaItem = ({ ariaInfo }) => {
                     <br></br>
                     Composer: {ariaInfo.Composer}
                     <br></br>
-                    Voice: {ariaInfo.Voice}
+                    Voice: {ariaInfo.Fach} {ariaInfo.Voice}
                     <br></br>
                     Language: {ariaInfo.Language}
                     <br></br>

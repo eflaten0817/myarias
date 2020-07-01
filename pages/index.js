@@ -97,6 +97,7 @@ const Home = ({ data }) => {
             <div className="flex text-center">
                 <div className="w-full m-4">
                     <h1 className="text-4xl">Aria Search Tool</h1>
+                    <h3>All Fields Optional</h3>
                 </div>
             </div>
             <div className="flex text-center">
