@@ -6,11 +6,8 @@
     "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
-    "test": "xo",
-    "lintfix": "xo --fix"
-  },
-  "xo": {
-    "space": true
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
   },
   "dependencies": {
     "dayjs": "^1.8.28",
@@ -24,10 +21,8 @@
     "swr": "^0.2.3"
   },
   "devDependencies": {
-    "eslint-config-xo": "^0.32.0",
-    "eslint-config-xo-react": "^0.23.0",
+    "eslint": "^7.3.1",
     "eslint-plugin-react": "^7.20.3",
-    "eslint-plugin-react-hooks": "^4.0.5",
-    "xo": "^0.32.0"
+    "eslint-plugin-react-hooks": "^4.0.5"
   }
 }
