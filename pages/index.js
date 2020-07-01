@@ -127,6 +127,7 @@ const Home = ({ data }) => {
                                         <option value="German">German</option>
                                         <option value="French">French</option>
                                         <option value="English">English</option>
+                                        <option value="Russian">Russian</option>
                                     </select>
                                 </label>
                             </form>
@@ -138,8 +139,10 @@ const Home = ({ data }) => {
                                     <select onChange={handleChangeFach}>
                                         <option value="">-------</option>
                                         <option value="Lyric">Lyric</option>
+                                        <option value="Full Lyric">Full Lyric</option>
                                         <option value="Lyric Coloratura">Lyric Coloratura</option>
                                         <option value="Dramatic">Dramatic</option>
+                                        <option value="Dramatic Coloratura">Dramatic Coloratura</option>
                                         <option value="Spinto">Spinto</option>
                                         <option value="Soubrette">Soubrette</option>
                                     </select>
@@ -157,10 +160,13 @@ const Home = ({ data }) => {
                                         <option value="Classical">Classical</option>
                                         <option value="Singspiel">Singspiel</option>
                                         <option value="20th-Century American">20th Century American</option>
+                                        <option value="20th-Century English">20th Century English</option>
                                         <option value="20th-Century Italian">20th Century Italian</option>
+                                        <option value="20th-Century German">20th Century German</option>
                                         <option value="French Romantic">French Romantic</option>
                                         <option value="Italian Romantic">Italian Romantic</option>
                                         <option value="German Romantic">German Romantic</option>
+                                        <option value="Russian Romantic">German Romantic</option>
                                         <option value="Italian Baroque">Italian Baroque</option>
                                         <option value="Viennese Operetta">Viennese Operetta</option>
                                         <option value="Czech Nationalistic">Czech Nationalistic</option>
@@ -177,15 +183,20 @@ const Home = ({ data }) => {
                                         <option value="Mozart">Mozart</option>
                                         <option value="Puccini">Puccini</option>
                                         <option value="Verdi">Verdi</option>
+                                        <option value="Wagner">Wagner</option>
+                                        <option value="Barber">Barber</option>
                                         <option value="Beethoven">Beethoven</option>
                                         <option value="Bellini">Bellini</option>
                                         <option value="Bizet">Bizet</option>
+                                        <option value="Catalani">Catalani</option>
                                         <option value="Delibes">Delibes</option>
                                         <option value="Donizetti">Donizetti</option>
                                         <option value="Halévy">Halévy</option>
                                         <option value="Handel">Handel</option>
                                         <option value="Humperdinck">Humperdinck</option>
+                                        <option value="Korngold">Korngold</option>
                                         <option value="J Strauss">Strauss, Johann</option>
+                                        <option value="R Strauss">Strauss, Richard</option>
                                         <option value="Lehár">Lehár</option>
                                         <option value="Leoncavallo">Leoncavallo</option>
                                         <option value="Mascagni">Mascagni</option>
@@ -194,9 +205,12 @@ const Home = ({ data }) => {
                                         <option value="Menotti">Menotti</option>
                                         <option value="Moore">Moore</option>
                                         <option value="Offenbach">Offenbach</option>
+                                        <option value="Previn">Previn</option>
                                         <option value="Rossini">Rossini</option>
                                         <option value="Smetana">Smetana</option>
+                                        <option value="Stravinsky">Stravinsky</option>
                                         <option value="Thomas">Thomas</option>
+                                        <option value="Tchaikovsky">Tchaikovsky</option>
                                     </select>
                                 </label>
                                 <br></br>

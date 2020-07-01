@@ -10,7 +10,14 @@ handler.use(middleware);
 handler.get(async (req, res) => {
     let doc = {};
     let query = qs.parse(req.query);
-    if (query) {
+    /*console.log(query.voiceFilter);
+    console.log(query.styleFilter);
+    console.log(query.composerFilter);
+    console.log(query.fachFilter);
+    console.log(query.languageFilter);
+    */
+   
+    if (query.voiceFilter != undefined) {
         doc = await req.db.collection("aria_data").find(
             {
                 Voice: {$regex: query.voiceFilter},
