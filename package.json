@@ -5,7 +5,12 @@
   "scripts": {
     "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "xo",
+    "lintfix": "xo --fix"
+  },
+  "xo": {
+    "space": true
   },
   "dependencies": {
     "dayjs": "^1.8.28",
@@ -15,5 +20,12 @@
     "next-connect": "^0.7.1",
     "react": "16.13.1",
     "react-dom": "16.13.1"
+  },
+  "devDependencies": {
+    "eslint-config-xo": "^0.32.0",
+    "eslint-config-xo-react": "^0.23.0",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.0.5",
+    "xo": "^0.32.0"
   }
 }
