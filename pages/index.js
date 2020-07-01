@@ -98,7 +98,7 @@ const Home = ({ data }) => {
                                 <label className="block">
                                     Select Voice Type: &nbsp;
                                     <select onChange={handleChangeVoice}>
-                                        <option value="Undefined">-------</option>
+                                        <option value="">-------</option>
                                         <option value="Soprano">Soprano</option>
                                         <option value="tenor">Tenor</option>
                                         <option value="mezzo">Mezzo</option>
@@ -112,11 +112,11 @@ const Home = ({ data }) => {
                                 <label className="block">
                                     Select Fach: &nbsp;
                                     <select onChange={handleChangeFach}>
-                                        <option value="Undefined">-------</option>
-                                        <option value="Lyric">Lyric</option>
-                                        <option value="Coloratura">Coloratura</option>
-                                        <option value="Dramatic">Dramatic</option>
-                                        <option value="Spinto">Spinto</option>
+                                        <option value="">-------</option>
+                                        <option value="lyric">Lyric</option>
+                                        <option value="coloratura">Coloratura</option>
+                                        <option value="dramatic">Dramatic</option>
+                                        <option value="spinto">Spinto</option>
                                     </select>
                                 </label>
                             </form>
@@ -126,7 +126,7 @@ const Home = ({ data }) => {
                                 <label className="block">
                                     Select Style: &nbsp;
                                     <select onChange={handleChangeStyle}>
-                                        <option value="Undefined">-------</option>
+                                        <option value="">-------</option>
                                         <option value="Verismo">Verismo</option>
                                         <option value="Bel Canto">Bel Canto</option>
                                         <option value="Singspiel">Singspiel</option>
@@ -140,11 +140,11 @@ const Home = ({ data }) => {
                                 <label className="block">
                                     Select Composer: &nbsp;
                                     <select onChange={handleChangeComposer}>
-                                        <option value="Undefined">-------</option>
-                                        <option value="mozart">Mozart</option>
-                                        <option value="puccini">Puccini</option>
-                                        <option value="verdi">Verdi</option>
-                                        <option value="bernstein">Bernstein</option>
+                                        <option value="">-------</option>
+                                        <option value="Mozart">Mozart</option>
+                                        <option value="Puccini">Puccini</option>
+                                        <option value="Verdi">Verdi</option>
+                                        <option value="Bernstein">Bernstein</option>
                                     </select>
                                 </label>
                                 <br></br>

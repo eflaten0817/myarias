@@ -11,16 +11,31 @@ handler.get(async (req, res) => {
     let doc = {};
     let query = qs.parse(req.query);
     // let vFilter = req.query.voiceFilter;
+    //query.voiceFilter
+    if (query) {
 
-    if (query.voiceFilter) {
-        doc = await req.db.collection("aria_data", function (err, collection) {
+        doc = await req.db.collection("aria_data").find(
+            {
+                Voice: {$regex: query.voiceFilter},
+                Style: {$regex: query.styleFilter},
+                Composer: {$regex: query.composerFilter},
+                Fach: {$regex: query.fachFilter}
+            }).toArray();
+        // * for some reason, if I don't do it this ^ way, I get the "unexpected token" error
+        // * it might be a specific MongoDb Atlas syntax thing, I had similar issues using mongoDB with python
+
+        //doc = await req.db.collection("aria_data", function (err, collection) {
             // * I think this is what you want - Eric
-            return collection.filter((item) => item.Voice === query.voiceFilter);
+            //return collection.filter((item) => item.Voice === query.voiceFilter);
             // collection.find({ Voice: vFilter }).toArray(function (err, _doc) {});
-        });
+        //});
+        
     } else {
         // * else: return all arias
-        doc = await req.db.collection("aria_data");
+        //doc = await req.db.collection("aria_data");
+
+        // * with the above ^ I was getting "Unexpected token I in JSON at position 0" errors
+        doc = await req.db.collection("aria_data").find().toArray();
     }
 
     res.json(doc);
