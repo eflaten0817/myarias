@@ -1,34 +1,17 @@
-import React from 'react'
-const AriaItem = ({ariaInfo}) => {
+import React from 'react';
 
-    if (ariaInfo === undefined){
-        return (
-            <div className= "block">
-            <div className="p-4">
-                <div className="border-solid border-4 border-gray-600">
-                    Title
-                    <br></br>
-                    Opera
-                    <br></br>
-                    Composer
-                    <br></br>
-                    Voice
-                </div>
-            </div>
-        </div>
-        )
-    }
+const AriaItem = ({ariaInfo}) => {
     return (
         <div className= "block">
             <div className="p-4">
                 <div className="border-solid border-4 border-gray-600">
-                    {ariaInfo.Title}
+                    Title: {ariaInfo.Title}
                     <br></br>
-                    {ariaInfo.Opera}
+                    Opera: {ariaInfo.Opera}
                     <br></br>
-                    {ariaInfo.Composer}
+                    Composer: {ariaInfo.Composer}
                     <br></br>
-                    {ariaInfo.Voice}
+                    Voice: {ariaInfo.Voice}
                 </div>
             </div>
         </div>
