@@ -18,10 +18,11 @@ const middleware = nextConnect();
 
 middleware
     .use(database)
+    // * simple logger for GET requests
     .get((req, res, next) => {
         var url = req.url;
 
-        console.log('got request: ', url)
+        console.log(`got request: ${url}?${JSON.stringify(req.query) !== '{}' ? JSON.stringify(req.query) : ''}`)
 
         return next();
     })
