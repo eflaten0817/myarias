@@ -7,6 +7,6 @@
             "name": "Launch Program",
             "skipFiles": ["<node_internals>/**"],
             "port": 9229
-        }
+        },
     ]
 }
