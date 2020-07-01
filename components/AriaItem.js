@@ -14,6 +14,8 @@ const AriaItem = ({ ariaInfo }) => {
                     Voice: {ariaInfo.Voice}
                     <br></br>
                     Language: {ariaInfo.Language}
+                    <br></br>
+                    Style: {ariaInfo.Style}
                 </div>
             </div>
         </div>
