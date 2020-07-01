@@ -16,6 +16,14 @@ async function database(req, res, next) {
 
 const middleware = nextConnect();
 
-middleware.use(database);
+middleware
+    .use(database)
+    .get((req, res, next) => {
+        var url = req.url;
+
+        console.log('got request: ', url)
+
+        return next();
+    })
 
 export default middleware;
