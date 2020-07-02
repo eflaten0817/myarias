@@ -34,7 +34,7 @@ const Home = ({ data }) => {
                     fachFilter,
                     styleFilter,
                     composerFilter,
-                    languageFilter
+                    languageFilter,
                 });
 
                 const response = await fetch(`http://localhost:3000/api/daily?${query}`);
@@ -84,7 +84,7 @@ const Home = ({ data }) => {
             setLanguageFilter(event.target.value);
         },
         [setLanguageFilter]
-    )
+    );
 
     return (
         <div>
@@ -137,14 +137,16 @@ const Home = ({ data }) => {
                                 <label className="block">
                                     Select Fach: &nbsp;
                                     <select onChange={handleChangeFach}>
-                                        <option value="">-------</option>
+                                        <option value="">----------------</option>
                                         <option value="Lyric">Lyric</option>
                                         <option value="Full Lyric">Full Lyric</option>
                                         <option value="Lyric Coloratura">Lyric Coloratura</option>
                                         <option value="Dramatic">Dramatic</option>
                                         <option value="Dramatic Coloratura">Dramatic Coloratura</option>
+                                        <option value="Contralto">Contralto</option>
                                         <option value="Spinto">Spinto</option>
                                         <option value="Soubrette">Soubrette</option>
+                                        <option value="Leggiero">Leggiero</option>
                                     </select>
                                 </label>
                             </form>
@@ -154,7 +156,7 @@ const Home = ({ data }) => {
                                 <label className="block">
                                     Select Style: &nbsp;
                                     <select onChange={handleChangeStyle}>
-                                        <option value="">-------</option>
+                                        <option value="">-----------------------</option>
                                         <option value="Verismo">Verismo</option>
                                         <option value="Bel Canto">Bel Canto</option>
                                         <option value="Classical">Classical</option>
@@ -169,7 +171,9 @@ const Home = ({ data }) => {
                                         <option value="Russian Romantic">German Romantic</option>
                                         <option value="Italian Baroque">Italian Baroque</option>
                                         <option value="Viennese Operetta">Viennese Operetta</option>
+                                        <option value="French Operetta">French Operetta</option>
                                         <option value="Czech Nationalistic">Czech Nationalistic</option>
+                                        <option value="Russian Nationalistic">Russian Nationalistic</option>
                                     </select>
                                 </label>
                             </form>
@@ -179,20 +183,32 @@ const Home = ({ data }) => {
                                 <label className="block">
                                     Select Composer: &nbsp;
                                     <select onChange={handleChangeComposer}>
-                                        <option value="">-------</option>
+                                        <option value="">------------------</option>
                                         <option value="Mozart">Mozart</option>
                                         <option value="Puccini">Puccini</option>
                                         <option value="Verdi">Verdi</option>
                                         <option value="Wagner">Wagner</option>
+                                        <option value="Adamo">Adamo</option>
                                         <option value="Barber">Barber</option>
+                                        <option value="Bernstein">Bernstein</option>
+                                        <option value="Bolcom">Bolcom</option>
+                                        <option value="Saint-Saës">Saint-Saës</option>
                                         <option value="Beethoven">Beethoven</option>
+                                        <option value="Beeson">Beeson</option>
                                         <option value="Bellini">Bellini</option>
+                                        <option value="Berlioz">Berlioz</option>
                                         <option value="Bizet">Bizet</option>
+                                        <option value="Cilea">Cilea</option>
                                         <option value="Catalani">Catalani</option>
+                                        <option value="Corigliano">Corigliano</option>
                                         <option value="Delibes">Delibes</option>
                                         <option value="Donizetti">Donizetti</option>
+                                        <option value="Flotow">Flotow</option>
+                                        <option value="Giordano">Giordano</option>
+                                        <option value="Gluck">Gluck</option>
                                         <option value="Halévy">Halévy</option>
                                         <option value="Handel">Handel</option>
+                                        <option value="Hoiby">Hoiby</option>
                                         <option value="Humperdinck">Humperdinck</option>
                                         <option value="Korngold">Korngold</option>
                                         <option value="J Strauss">Strauss, Johann</option>
@@ -202,15 +218,30 @@ const Home = ({ data }) => {
                                         <option value="Mascagni">Mascagni</option>
                                         <option value="Massenet">Massenet</option>
                                         <option value="Mechem">Mechem</option>
+                                        <option value="Meyerbeer">Meyerbeer</option>
                                         <option value="Menotti">Menotti</option>
                                         <option value="Moore">Moore</option>
+                                        <option value="Monteverdi">Monteverdi</option>
+                                        <option value="Musorgsky">Musorgsky</option>
+                                        <option value="Nicolai">Nicolai</option>
                                         <option value="Offenbach">Offenbach</option>
+                                        <option value="Lalo">Lalo</option>
                                         <option value="Previn">Previn</option>
+                                        <option value="Penhorwood">Penhorwood</option>
+                                        <option value="Purcell">Purcell</option>
                                         <option value="Rossini">Rossini</option>
+                                        <option value="Sheng">Sheng</option>
                                         <option value="Smetana">Smetana</option>
+                                        <option value="Sondheim">Sondheim</option>
+                                        <option value="Schuman">Schuman, William</option>
                                         <option value="Stravinsky">Stravinsky</option>
+                                        <option value="Tippett">Tippett</option>
                                         <option value="Thomas">Thomas</option>
+                                        <option value="Thomson">Thomson</option>
                                         <option value="Tchaikovsky">Tchaikovsky</option>
+                                        <option value="Weber">Weber</option>
+                                        <option value="Weill">Weill</option>
+                                        <option value="Ward">Ward</option>
                                     </select>
                                 </label>
                                 <br></br>
