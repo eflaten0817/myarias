@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import Nav from "../components/nav";
+import Navbar from "../components/navbar";
 
 const About = () => (
     <div>
@@ -10,7 +10,7 @@ const About = () => (
             <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
         </Head>
 
-        <Nav />
+        <Navbar />
 
         <div className="container mx-auto text-center">
             <h1 className="text-6x1 m-12">Aria Search Tool</h1>
