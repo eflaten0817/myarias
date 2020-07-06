@@ -11,7 +11,7 @@ const Navbar = () => (
             <Link href="/About">
                 <a>About</a>
             </Link>
-            <Link href="/">
+            <Link href="/Submit">
                 <a>Submit Aria</a>
             </Link>
             </ul>
