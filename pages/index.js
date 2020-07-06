@@ -113,6 +113,7 @@ const Home = ({ data }) => {
                                         <option value="Soprano">Soprano</option>
                                         <option value="Tenor">Tenor</option>
                                         <option value="Mezzo">Mezzo</option>
+                                        <option value="Baritone">Baritone</option>
                                         <option value="Bass">Bass</option>
                                     </select>
                                 </label>
@@ -148,6 +149,8 @@ const Home = ({ data }) => {
                                         <option value="Spinto">Spinto</option>
                                         <option value="Soubrette">Soubrette</option>
                                         <option value="Leggiero">Leggiero</option>
+                                        <option value="Bass-Baritone">Bass-Baritone</option>
+                                        <option value="Buffo">Buffo</option>
                                     </select>
                                 </label>
                             </form>
@@ -199,6 +202,8 @@ const Home = ({ data }) => {
                                         <option value="Bellini">Bellini</option>
                                         <option value="Berlioz">Berlioz</option>
                                         <option value="Bizet">Bizet</option>
+                                        <option value="Blitzstein">Blitzstein</option>
+                                        <option value="Cavalli">Cavalli</option>
                                         <option value="Cilea">Cilea</option>
                                         <option value="Catalani">Catalani</option>
                                         <option value="Corigliano">Corigliano</option>
