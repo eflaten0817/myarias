@@ -38,7 +38,7 @@ const Home = ({ data }) => {
                     languageFilter,
                 });
 
-                const response = await fetch(`/api/daily?${query}`);
+                const response = await fetch(`./api/daily?${query}`);
                 const data = await response.json();
 
                 // * save data in state
@@ -274,7 +274,7 @@ const Home = ({ data }) => {
 
 // * loads unfiltered arias on initial page load
 Home.getInitialProps = async () => {
-    const res = await fetch("/api/daily");
+    const res = await fetch("./api/daily");
     const json = await res.json();
     return { data: json };
 };
