@@ -41,7 +41,7 @@ const Home = ({ data }) => {
                     languageFilter,
                 });
 
-                const response = await fetch(`${process.env.VERCEL_URL}/api/daily?${query}`);
+                const response = await fetch(`https://${process.env.VERCEL_URL}/api/daily?${query}`);
                 const data = await response.json();
 
                 // * save data in state
@@ -279,8 +279,9 @@ const Home = ({ data }) => {
 
 const baseUrl = process.env.VERCEL_URL;
 Home.getInitialProps = async () => {
+    const baseUrl = process.env.VERCEL_URL;
     console.log(baseUrl);
-    const res = await fetch(`${baseUrl}/api/daily`);
+    const res = await fetch(`https://${baseUrl}/api/daily`);
     const json = await res.json();
     return { data: json };
 };
