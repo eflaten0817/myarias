@@ -41,7 +41,7 @@ const Home = ({ data }) => {
                     languageFilter,
                 });
 
-                const response = await fetch(`https://${process.env.VERCEL_URL}/api/daily?${query}`);
+                const response = await fetch(`https://${baseUrl}/api/daily?${query}`);
                 const data = await response.json();
 
                 // * save data in state
