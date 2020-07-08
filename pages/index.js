@@ -41,7 +41,7 @@ const Home = ({ data }) => {
                     languageFilter,
                 });
 
-                const response = await fetch(`${baseUrl}/api/daily?${query}`);
+                const response = await fetch(`${process.env.VERCEL_URL}/api/daily?${query}`);
                 const data = await response.json();
 
                 // * save data in state
@@ -278,7 +278,7 @@ const Home = ({ data }) => {
 // * loads unfiltered arias on initial page load
 Home.getInitialProps = async () => {
     const baseUrl = process.env.VERCEL_URL;
-    const res = await fetch(`${baseUrl}/api/daily`);
+    const res = await fetch(`${process.env.VERCEL_URL}/api/daily`);
     const json = await res.json();
     return { data: json };
 };
