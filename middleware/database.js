@@ -1,8 +1,8 @@
 import { MongoClient } from "mongodb";
 import nextConnect from "next-connect";
-const baseUrl = process.env.VERCEL_URL
+
 const client = new MongoClient(
-    `${process.env.MONGO_KEY}`,
+    process.env.MONGO_KEY,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
