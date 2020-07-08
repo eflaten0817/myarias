@@ -1,7 +1,6 @@
 import { MongoClient } from "mongodb";
 import nextConnect from "next-connect";
 const uri = `mongodb+srv://${process.env.DB_NAME}:${process.env.DB_PASS}@cluster0-yw0sn.mongodb.net/test?retryWrites=true&w=majority`;
-console.log(uri);
 const client = new MongoClient(
     uri,
     {
