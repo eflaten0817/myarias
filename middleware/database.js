@@ -3,7 +3,7 @@ import nextConnect from "next-connect";
 const connectUri = process.env.MONGO_KEY;
 console.log(connectUri);
 const client = new MongoClient(
-    connectUri,
+    `mongodb://${process.env.DB_NAME}:${process.env.DB_PASS}@cluster0-yw0sn.mongodb.net/test?retryWrites=true&w=majority`,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
