@@ -40,7 +40,7 @@ const Home = ({ data }) => {
                     composerFilter,
                     languageFilter,
                 });
-
+                const baseUrl = process.env.VERCEL_URL;
                 const response = await fetch(`https://${baseUrl}/api/daily?${query}`);
                 const data = await response.json();
 
