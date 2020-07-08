@@ -41,7 +41,7 @@ const Home = ({ data }) => {
                     languageFilter,
                 });
                 const baseUrl = process.env.VERCEL_URL;
-                const response = await fetch(`https://${baseUrl}/api/daily?${query}`);
+                const response = await fetch(`https://myarias.vercel.app/api/daily?${query}`);
                 const data = await response.json();
 
                 // * save data in state
@@ -280,7 +280,6 @@ const Home = ({ data }) => {
 const baseUrl = process.env.VERCEL_URL;
 Home.getInitialProps = async () => {
     const baseUrl = process.env.VERCEL_URL;
-    console.log(baseUrl);
     const res = await fetch(`https://${baseUrl}/api/daily`);
     const json = await res.json();
     return { data: json };

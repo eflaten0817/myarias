@@ -1,11 +1,11 @@
 import React from 'react'
 import Link from 'next/link'
-
+const baseUrl = process.env.VERCEL_URL;
 const Navbar = () => (
     <nav>
         
             <ul>
-            <Link href="/">
+            <Link href="https://${baseUrl}">
                 <a>Home</a>
             </Link>
             <Link href="/About">
