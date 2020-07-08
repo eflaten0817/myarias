@@ -5,7 +5,7 @@ const Navbar = () => (
     <nav>
         
             <ul>
-            <Link href="https://myarias.vercel.app/">
+            <Link href="/index">
                 <a>Home</a>
             </Link>
             <Link href="/About">

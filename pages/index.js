@@ -97,7 +97,7 @@ const Home = ({ data }) => {
                 <link rel="icon" href="/favicon.ico" />
                 <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
             </Head>
-            <Navbar />
+            
             <div className="flex text-center">
                 <div className="w-full m-4">
                     <h1 className="text-4xl">My Arias</h1>
