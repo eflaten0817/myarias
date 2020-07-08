@@ -275,7 +275,7 @@ const Home = ({ data }) => {
 
 // * loads unfiltered arias on initial page load
 Home.getInitialProps = async () => {
-    const res = await fetch(`${process.env.VERCEL_URL}/api/daily?${query}`);
+    const res = await fetch(`${process.env.VERCEL_URL}/api/daily`);
     const json = await res.json();
     return { data: json };
 };
