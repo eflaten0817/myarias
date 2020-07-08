@@ -1,8 +1,8 @@
 import { MongoClient } from "mongodb";
 import nextConnect from "next-connect";
-
+const connectString = `mongodb://${process.env.DB_NAME}:${process.env.DB_PASS}@cluster0-yw0sn.mongodb.net/test?retryWrites=true&w=majority`;
 const client = new MongoClient(
-    `mongodb://${process.env.DB_NAME}:${process.env.DB_PASS}@cluster0-yw0sn.mongodb.net/test?retryWrites=true&w=majority`,
+    connectString,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
