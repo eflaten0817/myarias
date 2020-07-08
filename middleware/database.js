@@ -1,8 +1,8 @@
 import { MongoClient } from "mongodb";
 import nextConnect from "next-connect";
-
+const connectUri = process.env.MONGO_KEY;
 const client = new MongoClient(
-    process.env.MONGO_KEY,
+    connectUri,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
