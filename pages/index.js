@@ -272,9 +272,8 @@ const Home = ({ data }) => {
             <div className="flex text-center">
                 <div className="w-full m-4">
                    
-                <h1>There should be an Aria Table here.</h1> 
-                <AriaTable />
-                    <h2>Filtered Arias anything at all?</h2>
+                
+                    <h2>Filtered Arias</h2>
                     
                     <AriaItems ariaCollection={ariaCollection} />
                 </div>
