@@ -11,6 +11,8 @@
     "format": "prettier --write \"{pages,hooks,middleware,components}/**/*.+(js|jsx|json|css|md)\""
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
     "dayjs": "^1.8.29",
     "isomorphic-unfetch": "^3.0.0",
     "mongodb": "^3.5.9",

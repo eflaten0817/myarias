@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import AriaItem from "../components/AriaItem";
+import AriaTable from "../components/AriaTable";
 import fetch from "isomorphic-unfetch";
 import qs from "qs";
 import Navbar from '../components/navbar'
+
+
 
 const AriaItems = ({ ariaCollection }) =>
     ariaCollection.map((ariaInfo, index) => <AriaItem key={index} ariaInfo={ariaInfo} />);
@@ -96,8 +99,9 @@ const Home = ({ data }) => {
                 <title>Home</title>
                 <link rel="icon" href="/favicon.ico" />
                 <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+                <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
             </Head>
-            
             <div className="flex text-center">
                 <div className="w-full m-4">
                     <h1 className="text-4xl">My Arias</h1>
@@ -267,7 +271,11 @@ const Home = ({ data }) => {
             </div>
             <div className="flex text-center">
                 <div className="w-full m-4">
-                    <h2>Filtered Arias</h2>
+                   
+                <h1>There should be an Aria Table here.</h1> 
+                <AriaTable />
+                    <h2>Filtered Arias anything at all?</h2>
+                    
                     <AriaItems ariaCollection={ariaCollection} />
                 </div>
             </div>
