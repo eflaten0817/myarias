@@ -4,7 +4,42 @@ import AriaItem from "../components/AriaItem";
 import AriaTable from "../components/AriaTable";
 import fetch from "isomorphic-unfetch";
 import qs from "qs";
+import Grid from '@material-ui/core/Grid'
 import Navbar from '../components/navbar'
+import Button from '@material-ui/core/Button';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import { makeStyles } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import NativeSelect from '@material-ui/core/NativeSelect';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+      flexGrow: 1,
+    },
+    menuButton: {
+      marginRight: theme.spacing(2),
+    },
+    title: {
+      flexGrow: 1,
+    },
+    formControl: {
+        margin: theme.spacing(1),
+        minWidth: 120,
+      },
+      selectEmpty: {
+        marginTop: theme.spacing(2),
+      },
+  }));
 
 
 
@@ -92,7 +127,7 @@ const Home = ({ data }) => {
         },
         [setLanguageFilter]
     );
-
+    const classes = useStyles();
     return (
         <div>
             <Head>
@@ -102,51 +137,70 @@ const Home = ({ data }) => {
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
                 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
             </Head>
-            <div className="flex text-center">
-                <div className="w-full m-4">
-                    <h1 className="text-4xl">My Arias</h1>
-                    <h3>All Fields Optional</h3>
-                </div>
+            <div className={classes.root}>
+                <AppBar position="static">
+                    <Toolbar>
+                        <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                            <MenuIcon />
+                        </IconButton>
+                        <Typography variant="h6" className={classes.title}>
+                            My Arias 
+                        </Typography>
+                    </Toolbar>
+                </AppBar>
             </div>
+            <Card>
             <div className="flex text-center">
                 <div className="w-full m-4">
                     <div className="w-full m-4">
                         <div className="p-4">
-                            <form>
-                                <label className="block">
-                                    Select Voice Type: &nbsp;
-                                    <select onChange={handleChangeVoice}>
-                                        <option value="">-------</option>
+                            <FormControl className={classes.formControl}>
+                                <InputLabel htmlFor="age-native-simple">Voice</InputLabel>
+                                    <Select
+                                        native
+                                        onChange={handleChangeVoice}
+                                        inputProps={{
+                                        name: 'voice',
+                                        id: 'voice-native-simple',
+                                        }}
+                                    >
+                                        <option aria-label="None" value="" />
                                         <option value="Soprano">Soprano</option>
                                         <option value="Tenor">Tenor</option>
                                         <option value="Mezzo">Mezzo</option>
                                         <option value="Baritone">Baritone</option>
                                         <option value="Bass">Bass</option>
-                                    </select>
-                                </label>
-                            </form>
-                        </div>
-                        <div className="p-4">
-                            <form>
-                                <label className="block">
-                                    Select Language: &nbsp;
-                                    <select onChange={handleChangeLanguage}>
-                                        <option value="">-------</option>
+                                    </Select>
+                            </FormControl>
+                            <FormControl className={classes.formControl}>
+                                <InputLabel htmlFor="age-native-simple">Language</InputLabel>
+                                    <Select
+                                        native
+                                        onChange={handleChangeLanguage}
+                                        inputProps={{
+                                        name: 'language',
+                                        id: 'language-native-simple',
+                                        }}
+                                    >
+                                        <option aria-label="None" value="" />
                                         <option value="Italian">Italian</option>
                                         <option value="German">German</option>
                                         <option value="French">French</option>
                                         <option value="English">English</option>
                                         <option value="Russian">Russian</option>
-                                    </select>
-                                </label>
-                            </form>
-                        </div>
-                        <div className="p-4">
-                            <form>
-                                <label className="block">
-                                    Select Fach: &nbsp;
-                                    <select onChange={handleChangeFach}>
-                                        <option value="">----------------</option>
+                                    </Select>
+                            </FormControl>
+                            <FormControl className={classes.formControl}>
+                                <InputLabel htmlFor="age-native-simple">Fach</InputLabel>
+                                    <Select
+                                        native
+                                        onChange={handleChangeFach}
+                                        inputProps={{
+                                        name: 'fach',
+                                        id: 'fach-native-simple',
+                                        }}
+                                    >
+                                        <option aria-label="None" value="" />
                                         <option value="Lyric">Lyric</option>
                                         <option value="Full Lyric">Full Lyric</option>
                                         <option value="Lyric Coloratura">Lyric Coloratura</option>
@@ -158,16 +212,19 @@ const Home = ({ data }) => {
                                         <option value="Leggiero">Leggiero</option>
                                         <option value="Bass-Baritone">Bass-Baritone</option>
                                         <option value="Buffo">Buffo</option>
-                                    </select>
-                                </label>
-                            </form>
-                        </div>
-                        <div className="p-4">
-                            <form>
-                                <label className="block">
-                                    Select Style: &nbsp;
-                                    <select onChange={handleChangeStyle}>
-                                        <option value="">-----------------------</option>
+                                    </Select>
+                            </FormControl>
+                            <FormControl className={classes.formControl}>
+                                <InputLabel htmlFor="age-native-simple">Style</InputLabel>
+                                    <Select
+                                        native
+                                        onChange={handleChangeStyle}
+                                        inputProps={{
+                                        name: 'style',
+                                        id: 'style-native-simple',
+                                        }}
+                                    >
+                                        <option aria-label="None" value="" />
                                         <option value="Verismo">Verismo</option>
                                         <option value="Bel Canto">Bel Canto</option>
                                         <option value="Classical">Classical</option>
@@ -185,16 +242,19 @@ const Home = ({ data }) => {
                                         <option value="French Operetta">French Operetta</option>
                                         <option value="Czech Nationalistic">Czech Nationalistic</option>
                                         <option value="Russian Nationalistic">Russian Nationalistic</option>
-                                    </select>
-                                </label>
-                            </form>
-                        </div>
-                        <div className="p-4">
-                            <form>
-                                <label className="block">
-                                    Select Composer: &nbsp;
-                                    <select onChange={handleChangeComposer}>
-                                        <option value="">------------------</option>
+                                    </Select>
+                            </FormControl>
+                            <FormControl className={classes.formControl}>
+                                <InputLabel htmlFor="composer-native-simple">Composer</InputLabel>
+                                    <Select
+                                        native
+                                        onChange={handleChangeLanguage}
+                                        inputProps={{
+                                        name: 'composer',
+                                        id: 'composer-native-simple',
+                                        }}
+                                    >
+                                        <option aria-label="None" value="" />
                                         <option value="Mozart">Mozart</option>
                                         <option value="Puccini">Puccini</option>
                                         <option value="Verdi">Verdi</option>
@@ -255,27 +315,25 @@ const Home = ({ data }) => {
                                         <option value="Weber">Weber</option>
                                         <option value="Weill">Weill</option>
                                         <option value="Ward">Ward</option>
-                                    </select>
-                                </label>
+                                    </Select>
+                            </FormControl>
+                        </div>
                                 <br></br>
-                                <button
-                                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                <Button variant="contained" color="primary"
+                                    
                                     onClick={updateArias}
                                 >
                                     Find My Arias
-                                </button>
-                            </form>
-                        </div>
+                                </Button>
                     </div>
                 </div>
             </div>
+            </Card>
             <div className="flex text-center">
                 <div className="w-full m-4">
-                   
-                
-                    <h2>Filtered Arias</h2>
-                    
-                    <AriaItems ariaCollection={ariaCollection} />
+                    <Grid container align="center" justify="center" spacing={2}>
+                        <AriaItems ariaCollection={ariaCollection} />
+                    </Grid>
                 </div>
             </div>
         </div>
@@ -286,6 +344,14 @@ const Home = ({ data }) => {
 
 const baseUrl = process.env.VERCEL_URL;
 Home.getInitialProps = async () => {
+    
+
+    //for local dev
+    //const baseUrl = 'localhost:3000'
+    //http://localhost:3000
+    //const res = await fetch(`http://${baseUrl}/api/daily`);
+
+    //for production
     const baseUrl = process.env.VERCEL_URL;
     const res = await fetch(`https://${baseUrl}/api/daily`);
     const json = await res.json();
