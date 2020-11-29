@@ -171,6 +171,7 @@ const Home = ({ data }) => {
                                         <option value="Baritone">Baritone</option>
                                         <option value="Bass">Bass</option>
                                     </Select>
+                                    <FormHelperText>Optional</FormHelperText>
                             </FormControl>
                             <FormControl className={classes.formControl}>
                                 <InputLabel htmlFor="language-native-simple">Language</InputLabel>
@@ -189,6 +190,7 @@ const Home = ({ data }) => {
                                         <option value="English">English</option>
                                         <option value="Russian">Russian</option>
                                     </Select>
+                                    <FormHelperText>Optional</FormHelperText>
                             </FormControl>
                             <FormControl className={classes.formControl}>
                                 <InputLabel htmlFor="fach-native-simple">Fach</InputLabel>
@@ -213,6 +215,7 @@ const Home = ({ data }) => {
                                         <option value="Bass-Baritone">Bass-Baritone</option>
                                         <option value="Buffo">Buffo</option>
                                     </Select>
+                                    <FormHelperText>Optional</FormHelperText>
                             </FormControl>
                             <FormControl className={classes.formControl}>
                                 <InputLabel htmlFor="style-native-simple">Style</InputLabel>
@@ -243,6 +246,7 @@ const Home = ({ data }) => {
                                         <option value="Czech Nationalistic">Czech Nationalistic</option>
                                         <option value="Russian Nationalistic">Russian Nationalistic</option>
                                     </Select>
+                                    <FormHelperText>Optional</FormHelperText>
                             </FormControl>
                             <FormControl className={classes.formControl}>
                                 <InputLabel htmlFor="composer-native-simple">Composer</InputLabel>
@@ -316,6 +320,7 @@ const Home = ({ data }) => {
                                         <option value="Weill">Weill</option>
                                         <option value="Ward">Ward</option>
                                     </Select>
+                                    <FormHelperText>Optional</FormHelperText>
                             </FormControl>
                         </div>
                                 <br></br>
