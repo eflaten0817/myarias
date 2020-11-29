@@ -173,7 +173,7 @@ const Home = ({ data }) => {
                                     </Select>
                             </FormControl>
                             <FormControl className={classes.formControl}>
-                                <InputLabel htmlFor="age-native-simple">Language</InputLabel>
+                                <InputLabel htmlFor="language-native-simple">Language</InputLabel>
                                     <Select
                                         native
                                         onChange={handleChangeLanguage}
@@ -191,7 +191,7 @@ const Home = ({ data }) => {
                                     </Select>
                             </FormControl>
                             <FormControl className={classes.formControl}>
-                                <InputLabel htmlFor="age-native-simple">Fach</InputLabel>
+                                <InputLabel htmlFor="fach-native-simple">Fach</InputLabel>
                                     <Select
                                         native
                                         onChange={handleChangeFach}
@@ -215,7 +215,7 @@ const Home = ({ data }) => {
                                     </Select>
                             </FormControl>
                             <FormControl className={classes.formControl}>
-                                <InputLabel htmlFor="age-native-simple">Style</InputLabel>
+                                <InputLabel htmlFor="style-native-simple">Style</InputLabel>
                                     <Select
                                         native
                                         onChange={handleChangeStyle}
@@ -248,7 +248,7 @@ const Home = ({ data }) => {
                                 <InputLabel htmlFor="composer-native-simple">Composer</InputLabel>
                                     <Select
                                         native
-                                        onChange={handleChangeLanguage}
+                                        onChange={handleChangeComposer}
                                         inputProps={{
                                         name: 'composer',
                                         id: 'composer-native-simple',
