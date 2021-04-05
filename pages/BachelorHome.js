@@ -93,7 +93,7 @@ const BachelorHome = ({ data }) => {
 
                 // for production
                 const baseUrl = process.env.VERCEL_URL;
-                const response = await fetch(`https://myarias.vercel.app/api/daily?${query}`);
+                const response = await fetch(`https://myarias.vercel.app/api/bachelor?${query}`);
 
                 const data = await response.json();
 
