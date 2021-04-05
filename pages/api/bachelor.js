@@ -1,7 +1,6 @@
 import nextConnect from "next-connect";
 import middleware from "../../middleware/bachelorData";
 import qs from "qs";
-import {ObjectID} from 'mongodb';
 
 const handler = nextConnect();
 
