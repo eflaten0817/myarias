@@ -93,7 +93,7 @@ const BachelorItem = ({ bachelorInfo }) => {
 
                 //for production
                 const baseUrl = process.env.VERCEL_URL;
-                const res = await fetch(`https://myarias.vercel.app/api/daily?${query}`, {
+                const res = await fetch(`https://myarias.vercel.app/api/bachelor`, {
                     method: 'post',
                     body: stageTwo
                 });
