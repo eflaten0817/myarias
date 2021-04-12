@@ -62,20 +62,24 @@ const Personal = ({ bachelorInfo }) => {
 
                 const stageTwo = JSON.stringify(uploadObject);
                 console.log('stageTwo ', stageTwo);
-                //for local dev
-                const baseUrl = 'localhost:3000'
-                const res = await fetch(`http://${baseUrl}/api/bachelor`, {
+                // //for local dev
+                // const baseUrl = 'localhost:3000'
+                // const res = await fetch(`http://${baseUrl}/api/bachelor`, {
+                //     method: 'post',
+                //     body: stageTwo
+                // });
+
+                //for production
+                //for production
+                const baseUrl = process.env.VERCEL_URL;
+                const res = await fetch(`https://myarias.vercel.app/api/bachelor`, {
                     method: 'post',
                     body: stageTwo
                 });
 
-                //for production
-                //const baseUrl = process.env.VERCEL_URL;
-                //const response = await fetch(`https://myarias.vercel.app/api/daily?${query}`);
-
                 console.log('res: ', res);
             }
-            alert("SUBMITTED! BUCKLED UP!")
+            alert("SUBMITTED! BUCKLED UP!");
             // * call async function
             _setBachelor();
         },
