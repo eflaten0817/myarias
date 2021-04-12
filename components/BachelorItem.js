@@ -97,6 +97,7 @@ const BachelorItem = ({ bachelorInfo }) => {
                     method: 'post',
                     body: stageTwo
                 });
+                alert("SUBMITTED! BUCKLED UP!");
                 console.log('res: ', res);
             }
 
