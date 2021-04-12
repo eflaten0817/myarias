@@ -58,7 +58,7 @@ const Thursday = () => {
                 <ListItemIcon>
                     <PoolIcon />
                 </ListItemIcon>
-                <ListItemText primary="MGM Grand Pool" />
+                <ListItemText primary="The Venetian Pool" />
             </ListItem>
             <ListItem button className={classes.nested}>
                 <ListItemIcon>

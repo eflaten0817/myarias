@@ -59,7 +59,7 @@ const useStyles = makeStyles({
                   <ListItemIcon>
                       <RoomServiceIcon />
                   </ListItemIcon>
-                  <ListItemText primary="Room Block at MGM Grand" />
+                  <ListItemText primary="Stay at The Venetian" />
               </ListItem>
           </List>
       </Collapse>
