@@ -8,12 +8,15 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container'
 import TextField from '@material-ui/core/TextField';
 import FormHelperText from '@material-ui/core/FormHelperText';
+import Grid from '@material-ui/core/Grid'
 
+import Slider from "@material-ui/core/Slider";
 import fetch from "isomorphic-unfetch";
 import FormControl from '@material-ui/core/FormControl';
 
 
 import Personal from '../components/Personal';
+import Wednesday from '../components/Wednesday';
 import Thursday from '../components/Thursday';
 import Friday from '../components/Friday';
 import Saturday from '../components/Saturday';
@@ -23,13 +26,12 @@ import List from '@material-ui/core/List';
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 300,
+    minWidth: 275,
     maxWidth: 600,
     justifyContent: "center",
     align: "center",
     margin: "10px",
-    padding: "10px",
-    border: 1,
+    padding: "10px"
     //borderStyle: "solid",
   },
   bullet: {
@@ -54,7 +56,9 @@ const BachelorItem = ({ bachelorInfo }) => {
     const [departureFilter, setDepartureFilter] = useState("");
     const [drinkFilter, setDrinkFilter] = useState("");
     const [foodFilter, setFoodFilter] = useState("");
-
+    const [beerFilter, setBeerFilter] = useState("");
+    const [liquorFilter, setLiquorFilter] = useState("");
+    const [allergiesFilter, setAllergiesFilter] = useState("");
 
 
     const submitInfo= React.useCallback(
@@ -66,9 +70,16 @@ const BachelorItem = ({ bachelorInfo }) => {
             async function _setBachelor() {
                 
                 console.log('editor: ', textFilter);
-
+                const submissionTime = new Date();
                 const uploadObject = bachelorInfo;
                 bachelorInfo.Arrival = textFilter;
+                bachelorInfo.Departure = departureFilter;
+                bachelorInfo.Drink = drinkFilter;
+                bachelorInfo.Food = foodFilter;
+                bachelorInfo.Beer = beerFilter;
+                bachelorInfo.Liquor = liquorFilter;
+                bachelorInfo.Allergies = allergiesFilter;
+                bachelorInfo.LastSubmit = submissionTime;
                 console.log('uploadObject: ', uploadObject);
 
                 const stageTwo = JSON.stringify(uploadObject);
@@ -121,15 +132,70 @@ const BachelorItem = ({ bachelorInfo }) => {
         },
         [setFoodFilter]
     );
-
+    const handleInputBeer = React.useCallback(
+        (event) => {
+            setBeerFilter(event.target.value);
+        },
+        [setBeerFilter]
+    );
+    const handleInputLiquor = React.useCallback(
+        (event) => {
+            setLiquorFilter(event.target.value);
+        },
+        [setLiquorFilter]
+    );
+    const handleInputAllergies = React.useCallback(
+        (event) => {
+            setAllergiesFilter(event.target.value);
+        },
+        [setAllergiesFilter]
+    );
     return (
         <Container>
             <div>
-                        <Personal bachelorInfo={bachelorInfo}></Personal>
+                <Personal bachelorInfo={bachelorInfo}></Personal>
+                
+            </div>
+            <Card className={classes.root}>
+            <Typography variant='h3'>
+                        Food and Drink
+                    </Typography>
+                <FormControl className={classes.formControl}>
+                    Enter your favorites.
+                    <TextField id="standard-basic" label="Beer" onChange={handleInputBeer}/>
+                    <div>
+                            <TextField id="standard-basic" label="Late Night Food" onChange={handleInputFood}/>
+                            <FormHelperText>i.e. Hot Pockets</FormHelperText>
+                        </div>
+                        <div>
+                            <TextField id="standard-basic" label="Liquor" onChange={handleInputLiquor}/>
+                        </div>
+                        <div>
+                            <TextField id="standard-basic" label="Non-Alcoholic Drink" onChange={handleInputDrink}/>
+                        </div>
+                        <div>
+                            <TextField id="standard-basic" label="Restrictions/Allergies" onChange={handleInputAllergies}/>
+                        </div>
+                </FormControl>
+                    <br></br>
+                    <CardActions>
+                    <div>
+                    <Button variant="contained" color="primary"
+                        onClick={submitInfo}
+                    >
+                        Submit
+                    </Button>
                     </div>
+                </CardActions>
+            </Card>
             <Card className={classes.root} >
                 <CardContent>
+                <Typography variant='h3'>
+                        Itinerary 
+                    </Typography>
+                    Tentative and loose.
                     <List >
+                        <Wednesday />
                         <Thursday />
                         <Friday />
                         <Saturday />
@@ -146,6 +212,7 @@ const BachelorItem = ({ bachelorInfo }) => {
                     <Typography variant='h3'>
                         Travel
                     </Typography>
+                    If you know it already.
                     <List>
                         <div>
                             <TextField id="standard-basic" label="Arrival" onChange={handleInputText}/>
@@ -168,34 +235,7 @@ const BachelorItem = ({ bachelorInfo }) => {
                 </CardActions>
                 </CardContent>
             </Card>
-            <Card className={classes.root}>
-            <Typography variant='h3'>
-                        Food and Drink Favorites
-                    </Typography>
-                <FormControl className={classes.formControl}>
-                    <TextField id="standard-basic" label="Favorite Drink" onChange={handleInputDrink}/>
-                    <div>
-                            <TextField id="standard-basic" label="Late Night Food" onChange={handleInputFood}/>
-                            <FormHelperText>i.e. Hot Pockets</FormHelperText>
-                        </div>
-                        <div>
-                            <TextField id="standard-basic" label="Departure" onChange={handleInputDeparture}/>
-                        </div>
-                        <div>
-                            <TextField id="standard-basic" label="Flight Number" onChange={handleInputFlightNumber}/>
-                        </div>
-                </FormControl>
-                    <br></br>
-                    <CardActions>
-                    <div>
-                    <Button variant="contained" color="primary"
-                        onClick={submitInfo}
-                    >
-                        Submit
-                    </Button>
-                    </div>
-                </CardActions>
-            </Card>
+            
         </Container>
     );
 };

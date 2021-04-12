@@ -46,7 +46,7 @@ const Friday = () => {
     return (
         <List>
         <ListItem button onClick={handleClick}>
-            <ListItemText primary="Friday" />
+            <ListItemText primary="Friday Official Party Start " />
             {open ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
         <Collapse in={open} timeout="auto" unmountOnExit>
@@ -55,7 +55,7 @@ const Friday = () => {
               <ListItemIcon>
                 <OutdoorGrillIcon />
               </ListItemIcon>
-                <ListItemText primary="Official Party Start: BBQ" />
+                <ListItemText primary="BBQ" />
             </ListItem>
             <ListItem button className={classes.nested}>
                 <ListItemIcon>

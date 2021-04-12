@@ -40,7 +40,7 @@ const useStyles = makeStyles({
 const Thursday = () => {
     const classes = useStyles();
 
-    const [open, setOpen] = React.useState(true);
+    const [open, setOpen] = React.useState(false);
     
     const handleClick = () => {
         setOpen(!open);
@@ -54,17 +54,17 @@ const Thursday = () => {
         </ListItem>
         <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
+        <ListItem button className={classes.nested}>
+                <ListItemIcon>
+                    <PoolIcon />
+                </ListItemIcon>
+                <ListItemText primary="MGM Grand Pool" />
+            </ListItem>
             <ListItem button className={classes.nested}>
                 <ListItemIcon>
                     <FlightLandIcon />
                 </ListItemIcon>
                 <ListItemText primary="House Check In: 5pm" />
-            </ListItem>
-            <ListItem button className={classes.nested}>
-                <ListItemIcon>
-                    <PoolIcon />
-                </ListItemIcon>
-                <ListItemText primary="Drinks by the Pool" />
             </ListItem>
             <ListItem button className={classes.nested}>
                 <ListItemIcon>
