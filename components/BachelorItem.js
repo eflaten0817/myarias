@@ -85,16 +85,18 @@ const BachelorItem = ({ bachelorInfo }) => {
                 const stageTwo = JSON.stringify(uploadObject);
                 console.log('stageTwo ', stageTwo);
                 //for local dev
-                const baseUrl = 'localhost:3000'
-                const res = await fetch(`http://${baseUrl}/api/bachelor`, {
+                //const baseUrl = 'localhost:3000'
+                // const res = await fetch(`http://${baseUrl}/api/bachelor`, {
+                //     method: 'post',
+                //     body: stageTwo
+                // });
+
+                //for production
+                const baseUrl = process.env.VERCEL_URL;
+                const res = await fetch(`https://myarias.vercel.app/api/daily?${query}`, {
                     method: 'post',
                     body: stageTwo
                 });
-
-                //for production
-                //const baseUrl = process.env.VERCEL_URL;
-                //const response = await fetch(`https://myarias.vercel.app/api/daily?${query}`);
-
                 console.log('res: ', res);
             }
 
