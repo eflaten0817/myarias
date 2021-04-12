@@ -140,27 +140,6 @@ const Personal = ({ bachelorInfo }) => {
                             </Grid>
                         </Grid>
                         <br />
-                        
-                            
-                            
-                            <FormControl className={classes.formControl}>
-                            Interested in a Wednesday Night Room Block at the MGM Grand?
-                                <InputLabel htmlFor="age-native-simple"></InputLabel>
-                                    <Select
-                                        native
-                                        onChange={handleInputText}
-                                        inputProps={{
-                                        name: 'voice',
-                                        id: 'voice-native-simple',
-                                        }}
-                                    >
-                                        <option aria-label="None" value="No" />
-                                        <option value="Yes">Yes</option>
-                                        <option value="No">No</option>
-                                        <option value="Maybe">Maybe</option>
-                                    </Select>
-                                    <FormHelperText>Optional</FormHelperText>
-                            </FormControl>   
                     </div>
                     <br />
                     <CardActions>
