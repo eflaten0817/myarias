@@ -75,7 +75,7 @@ const Personal = ({ bachelorInfo }) => {
 
                 console.log('res: ', res);
             }
-
+            alert("SUBMITTED! BUCKLED UP!")
             // * call async function
             _setBachelor();
         },
