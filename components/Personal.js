@@ -42,7 +42,7 @@ const useStyles = makeStyles({
 
 const Personal = ({ bachelorInfo }) => {
     const classes = useStyles();
-    const [value, setValue] = React.useState(5);
+    const [value, setValue] = React.useState(bachelorInfo.Commitment);
     const [textFilter, setTextFilter] = useState("");
     const submitInfo= React.useCallback(
         
