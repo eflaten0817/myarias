@@ -59,6 +59,7 @@ const BachelorItem = ({ bachelorInfo }) => {
     const [beerFilter, setBeerFilter] = useState("");
     const [liquorFilter, setLiquorFilter] = useState("");
     const [allergiesFilter, setAllergiesFilter] = useState("");
+    const [vaccinatedFilter, setVaccinatedFilter] = useState("");
 
 
     const submitInfo= React.useCallback(
@@ -80,6 +81,8 @@ const BachelorItem = ({ bachelorInfo }) => {
                 bachelorInfo.Liquor = liquorFilter;
                 bachelorInfo.Allergies = allergiesFilter;
                 bachelorInfo.LastSubmit = submissionTime;
+                bachelorInfo.Vaccinated = vaccinatedFilter;
+
                 console.log('uploadObject: ', uploadObject);
 
                 const stageTwo = JSON.stringify(uploadObject);
@@ -152,6 +155,12 @@ const BachelorItem = ({ bachelorInfo }) => {
             setAllergiesFilter(event.target.value);
         },
         [setAllergiesFilter]
+    );
+    const handleInputVaccinated = React.useCallback(
+        (event) => {
+            setVaccinatedFilter(event.target.value);
+        },
+        [setVaccinatedFilter]
     );
     return (
         <Container>
@@ -227,6 +236,22 @@ const BachelorItem = ({ bachelorInfo }) => {
                             <TextField id="standard-basic" label="Flight Number" onChange={handleInputFlightNumber}/>
                         </div>
                     </List>
+                    <FormControl className={classes.formControl}>
+                                <InputLabel htmlFor="age-native-simple">Vaccinated</InputLabel>
+                                    <Select
+                                        native
+                                        onChange={handleInputVaccinated}
+                                        inputProps={{
+                                        name: 'vaccinated',
+                                        id: 'vaccinated-native-simple',
+                                        }}
+                                    >
+                                        <option aria-label="None" value="" />
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </Select>
+                                    <FormHelperText>*2nd dose by July 9th</FormHelperText>
+                            </FormControl>
                     <CardActions>
                     <div>
                     <Button variant="contained" color="primary"
