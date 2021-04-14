@@ -9,7 +9,8 @@ handler.use(middleware);
 handler.get(async (req, res) => {
     let doc = {};
     let query = qs.parse(req.query);
-    if (query.passwordFilter != undefined) {
+    const passwords = ['IckyOllie'];
+    if (passwords.includes(query.passwordFilter)) {
         doc = await req.db.collection("bachelor_party_data").find(
             {
                 Password: {$regex: query.passwordFilter},
