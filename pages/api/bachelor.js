@@ -11,6 +11,7 @@ handler.get(async (req, res) => {
     let query = qs.parse(req.query);
     const passwords = ['IckyOllie', 'lemondrop!', 'hashtagblessed', 'rideonkingjesus', '5$footlong==D'];
     if (passwords.includes(query.passwordFilter)) {
+        console.log('query: ', query);
         doc = await req.db.collection("bachelor_party_data").find(
             {
                 Password: {$regex: query.passwordFilter},
