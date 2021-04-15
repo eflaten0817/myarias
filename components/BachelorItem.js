@@ -208,6 +208,8 @@ const BachelorItem = ({ bachelorInfo }) => {
                         Itinerary 
                     </Typography>
                     Tentative and loose.
+                    <br />
+                    More specifics filled in as the date gets closer.
                     <List >
                         <Wednesday />
                         <Thursday />
