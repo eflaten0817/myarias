@@ -56,7 +56,6 @@ const Personal = ({ bachelorInfo }) => {
                 const submissionTime = new Date();
                 const uploadObject = bachelorInfo;
                 bachelorInfo.Commitment = value;
-                bachelorInfo.mgmGrand = textFilter;
                 bachelorInfo.LastSubmit = submissionTime;
                 console.log('uploadObject: ', uploadObject);
 
@@ -69,7 +68,6 @@ const Personal = ({ bachelorInfo }) => {
                 //     body: stageTwo
                 // });
 
-                //for production
                 //for production
                 const baseUrl = process.env.VERCEL_URL;
                 const res = await fetch(`https://myarias.vercel.app/api/bachelor`, {
@@ -114,6 +112,9 @@ const Personal = ({ bachelorInfo }) => {
             Room Number: {bachelorInfo.Room_Number}
           </Typography>
           <Typography className={classes.title}>
+            Room and Bed Preference: {bachelorInfo.Room_Preference}
+          </Typography>
+          <Typography className={classes.title}>
             Vaccinated: {bachelorInfo.Vaccinated}
           </Typography>
           <Typography className={classes.title}>
@@ -151,7 +152,7 @@ const Personal = ({ bachelorInfo }) => {
                     <Button variant="contained" color="primary"
                         onClick={submitInfo}
                     >
-                        Submit
+                        Update
                     </Button>
                     </div>
                 </CardActions>

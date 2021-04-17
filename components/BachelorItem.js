@@ -62,6 +62,7 @@ const BachelorItem = ({ bachelorInfo }) => {
     const [liquorFilter, setLiquorFilter] = useState("");
     const [allergiesFilter, setAllergiesFilter] = useState("");
     const [vaccinatedFilter, setVaccinatedFilter] = useState("");
+    const [roomFilter, setRoomFilter] = useState("");
 
 
     const submitInfo= React.useCallback(
@@ -75,13 +76,14 @@ const BachelorItem = ({ bachelorInfo }) => {
                 console.log('editor: ', textFilter);
                 const submissionTime = new Date();
                 const uploadObject = bachelorInfo;
-                bachelorInfo.Arrival = textFilter;
-                bachelorInfo.Departure = departureFilter;
-                bachelorInfo.Drink = drinkFilter;
-                bachelorInfo.Food = foodFilter;
-                bachelorInfo.Beer = beerFilter;
-                bachelorInfo.Liquor = liquorFilter;
-                bachelorInfo.Allergies = allergiesFilter;
+                bachelorInfo.Room_Preference = submissionTime + ': ' + roomFilter + ' | ' + bachelorInfo.Room_Preference;
+                bachelorInfo.Arrival = submissionTime + ': ' + textFilter + ' | ' + bachelorInfo.Arrival;
+                bachelorInfo.Departure = submissionTime + ': ' + departureFilter+ ' | ' + bachelorInfo.Departure;
+                bachelorInfo.Drink = submissionTime + ': ' + drinkFilter+ ' | ' + bachelorInfo.Drink;
+                bachelorInfo.Food = submissionTime + ': ' + foodFilter+ ' | ' + bachelorInfo.Food;
+                bachelorInfo.Beer = submissionTime + ': ' + beerFilter + ' | ' + bachelorInfo.Beer;
+                bachelorInfo.Liquor = submissionTime + ': ' + liquorFilter + ' | ' + bachelorInfo.Liquor;
+                bachelorInfo.Allergies = submissionTime + ': ' + allergiesFilter + ' | ' + bachelorInfo.Allergies;
                 bachelorInfo.LastSubmit = submissionTime;
                 bachelorInfo.Vaccinated = vaccinatedFilter;
 
@@ -90,7 +92,7 @@ const BachelorItem = ({ bachelorInfo }) => {
                 const stageTwo = JSON.stringify(uploadObject);
                 console.log('stageTwo ', stageTwo);
                 //for local dev
-                //const baseUrl = 'localhost:3000'
+                // const baseUrl = 'localhost:3000'
                 // const res = await fetch(`http://${baseUrl}/api/bachelor`, {
                 //     method: 'post',
                 //     body: stageTwo
@@ -164,6 +166,12 @@ const BachelorItem = ({ bachelorInfo }) => {
         },
         [setVaccinatedFilter]
     );
+    const handleInputRoom = React.useCallback(
+        (event) => {
+            setRoomFilter(event.target.value);
+        },
+        [setRoomFilter]
+    );
     return (
         <Container>
             <div>
@@ -191,7 +199,7 @@ const BachelorItem = ({ bachelorInfo }) => {
                             <TextField id="standard-basic" label="Restrictions/Allergies" onChange={handleInputAllergies}/>
                         </div>
                 </FormControl>
-                    <br></br>
+                    <br/>
                     <CardActions>
                     <div>
                     <Button variant="contained" color="primary"
@@ -238,6 +246,9 @@ const BachelorItem = ({ bachelorInfo }) => {
                         </div>
                         <div>
                             <TextField id="standard-basic" label="Flight Number" onChange={handleInputFlightNumber}/>
+                        </div>
+                        <div>
+                            <TextField id="standard-basic" label="Room Preference" onChange={handleInputRoom}/>
                         </div>
                     </List>
                     <FormControl className={classes.formControl}>
