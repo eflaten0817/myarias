@@ -9,7 +9,7 @@ handler.use(middleware);
 handler.get(async (req, res) => {
     let doc = {};
     let query = qs.parse(req.query);
-    const passwords = ['IckyOllie', 'lemondrop!', 'hashtagblessed', 'rideonkingjesus', '5dollarfootlong', 'youUp?', 'funTutorial', 'tickletickle', 'heyBabe', 'somethingsNotSittinRight'];
+    const passwords = ['IckyOllie', 'lemondrop!', 'hashtagblessed', 'rideonkingjesus', '5dollarfootlong', 'youUp?', 'funTutorial', 'tickletickle', 'heyBabe', 'somethingsNotSittinRight', 'universitysalad'];
     if (passwords.includes(query.passwordFilter)) {
         console.log('query: ', query);
         doc = await req.db.collection("bachelor_party_data").find(
