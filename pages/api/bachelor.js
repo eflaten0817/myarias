@@ -12,7 +12,7 @@ handler.get(async (req, res) => {
   const passwords = ['IckyOllie', 'lemondrop!', 'hashtagblessed',
     'rideonkingjesus', '5dollarfootlong', 'youUp?', 'funTutorial',
     'tickletickle', 'heyBabe', 'somethingsNotSittinRight', 'universitysalad',
-    'feedthebirdswiththeBIRDSEED'];
+    'feedthebirdswiththeBIRDSEED', 'hotHOThot'];
   if (passwords.includes(query.passwordFilter)) {
     console.log('query: ', query);
     doc = await req.db.collection('bachelor_party_data').find(
