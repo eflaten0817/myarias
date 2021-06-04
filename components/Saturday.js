@@ -59,21 +59,15 @@ const Saturday = () => {
           </ListItem>
           <ListItem button className={classes.nested}>
             <ListItemIcon>
-              <DirectionsWalkIcon />
-            </ListItemIcon>
-            <ListItemText primary="Old Vegas" />
-          </ListItem>
-          <ListItem button className={classes.nested}>
-            <ListItemIcon>
               <FastfoodIcon />
             </ListItemIcon>
             <ListItemText primary="Dinner" />
           </ListItem>
           <ListItem button className={classes.nested}>
             <ListItemIcon>
-              <MusicVideoIcon />
+              <DirectionsWalkIcon />
             </ListItemIcon>
-            <ListItemText primary="Blue Man Group" />
+            <ListItemText primary="Old Vegas" />
           </ListItem>
         </List>
       </Collapse>
