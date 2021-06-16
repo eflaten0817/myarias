@@ -10,7 +10,6 @@ import ExpandMore from '@material-ui/icons/ExpandMore';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 import DirectionsWalkIcon from '@material-ui/icons/DirectionsWalk';
 import FastfoodIcon from '@material-ui/icons/Fastfood';
-import MusicVideoIcon from '@material-ui/icons/MusicVideo';
 
 const useStyles = makeStyles({
   root: {
@@ -61,13 +60,13 @@ const Saturday = () => {
             <ListItemIcon>
               <FastfoodIcon />
             </ListItemIcon>
-            <ListItemText primary="Dinner" />
+            <ListItemText primary="Dinner at Block 16 Urban Food Hall" />
           </ListItem>
           <ListItem button className={classes.nested}>
             <ListItemIcon>
               <DirectionsWalkIcon />
             </ListItemIcon>
-            <ListItemText primary="Old Vegas" />
+            <ListItemText primary="Freemont Street Experience" />
           </ListItem>
         </List>
       </Collapse>
