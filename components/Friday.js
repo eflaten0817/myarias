@@ -8,7 +8,8 @@ import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import OutdoorGrillIcon from '@material-ui/icons/OutdoorGrill';
-import LocalBarIcon from '@material-ui/icons/LocalBar';
+import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
+
 import EmojiTransportationIcon from '@material-ui/icons/EmojiTransportation';
 const useStyles = makeStyles({
   root: {
@@ -49,6 +50,12 @@ const Friday = () => {
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
+          <ListItem button className={classes.nested}>
+            <ListItemIcon>
+              <LocalHospitalIcon />
+            </ListItemIcon>
+            <ListItemText primary="Recover and hang out by the pool" />
+          </ListItem>
           <ListItem button className={classes.nested}>
             <ListItemIcon>
               <OutdoorGrillIcon />
