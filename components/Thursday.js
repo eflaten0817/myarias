@@ -11,12 +11,9 @@ import PoolIcon from '@material-ui/icons/Pool';
 import CasinoIcon from '@material-ui/icons/Casino';
 import FlightLandIcon from '@material-ui/icons/FlightLand';
 import RestaurantIcon from '@material-ui/icons/Restaurant';
-import { TramRounded } from '@material-ui/icons';
 
 const useStyles = makeStyles({
   root: {
-    // minWidth: 275,
-    // maxWidth: 300,
     justifyContent: 'center',
     align: 'center',
     margin: '10px',
@@ -49,7 +46,7 @@ const Thursday = () => {
   return (
     <List >
       <ListItem button onClick={handleClick}>
-        <ListItemText primary="Thursday (Early Bird Arrival)" />
+        <ListItemText primary="Thursday" />
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
@@ -58,7 +55,7 @@ const Thursday = () => {
             <ListItemIcon>
               <PoolIcon />
             </ListItemIcon>
-            <ListItemText primary="The Venetian Pool" />
+            <ListItemText primary="Hang at The Venetian" />
           </ListItem>
           <ListItem button className={classes.nested}>
             <ListItemIcon>
